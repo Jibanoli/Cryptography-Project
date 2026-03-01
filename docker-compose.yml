@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  trustbank-app:
+    build: .
+    container_name: trustbank_portal
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      # This maps your current folder to the /app folder in Docker.
+      # This is CRITICAL so you can see the generated .pem files!
+      - .:/app
+    restart: always
